@@ -144,26 +144,6 @@ func (self *Reporter) BuildRequest(now time.Time, r metrics.Registry) (snapshot 
 						DisplayMin:        "0",
 					},
 				},
-				Measurement{
-					Name:   fmt.Sprintf("%s.%s", name, "5min"),
-					Value:  m.Rate5(),
-					Period: int64(self.Interval.Seconds()),
-					Attributes: map[string]interface{}{
-						DisplayUnitsLong:  Operations,
-						DisplayUnitsShort: OperationsShort,
-						DisplayMin:        "0",
-					},
-				},
-				Measurement{
-					Name:   fmt.Sprintf("%s.%s", name, "15min"),
-					Value:  m.Rate15(),
-					Period: int64(self.Interval.Seconds()),
-					Attributes: map[string]interface{}{
-						DisplayUnitsLong:  Operations,
-						DisplayUnitsShort: OperationsShort,
-						DisplayMin:        "0",
-					},
-				},
 			)
 		case metrics.Timer:
 			measurement[Name] = name
@@ -195,26 +175,6 @@ func (self *Reporter) BuildRequest(now time.Time, r metrics.Registry) (snapshot 
 					Measurement{
 						Name:   fmt.Sprintf("%s.%s", name, "rate.1min"),
 						Value:  m.Rate1(),
-						Period: int64(self.Interval.Seconds()),
-						Attributes: map[string]interface{}{
-							DisplayUnitsLong:  Operations,
-							DisplayUnitsShort: OperationsShort,
-							DisplayMin:        "0",
-						},
-					},
-					Measurement{
-						Name:   fmt.Sprintf("%s.%s", name, "rate.5min"),
-						Value:  m.Rate5(),
-						Period: int64(self.Interval.Seconds()),
-						Attributes: map[string]interface{}{
-							DisplayUnitsLong:  Operations,
-							DisplayUnitsShort: OperationsShort,
-							DisplayMin:        "0",
-						},
-					},
-					Measurement{
-						Name:   fmt.Sprintf("%s.%s", name, "rate.15min"),
-						Value:  m.Rate15(),
 						Period: int64(self.Interval.Seconds()),
 						Attributes: map[string]interface{}{
 							DisplayUnitsLong:  Operations,
